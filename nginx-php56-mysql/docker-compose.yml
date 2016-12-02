@@ -1,0 +1,38 @@
+version: '2'
+services:
+    nginx:
+      container_name: nginx
+      image: nginx
+      ports:
+        - "80:80"
+      volumes:
+        - ./src/etc/nginx:/etc/nginx/conf.d
+        - ./src/log/nginx:/var/log/nginx
+      volumes_from:
+        - php
+      links:
+        - php
+
+    php:
+      container_name: php56
+      image: my/php56:latest
+      volumes:
+        - ./src/www:/var/www
+        - ./src/etc/php56/php-fpm.conf:/usr/local/etc/php-fpm.conf
+      expose:
+        - "9000"
+      links:
+        - db
+
+    db:
+      container_name: mysql
+      image: mysql:5.7
+      ports:
+       - "3306:3306"
+      volumes:
+       - ./src/var/lib/mysql:/var/lib/mysql
+      environment:
+       - MYSQL_ROOT_PASSWORD=password
+       - MYSQL_DATABASE=testdb
+       - MYSQL_USER=user
+       - MYSQL_PASSWORD=pass
