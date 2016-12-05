@@ -19,8 +19,8 @@ RUN \
   cd / && \
   git clone https://github.com/wpscanteam/wpscan && \
   mv /wpscan /opt/ && \
-  ln -s /opt/wpscan/wpscan.rb /usr/local/bin/
-  mkdir /opt/ruby/ &&\
+  ln -s /opt/wpscan/wpscan.rb /usr/local/bin/ && \
+  mkdir /opt/ruby/ && \
   cd /opt/ruby && \
   wget https://cache.ruby-lang.org/pub/ruby/2.2/ruby-2.2.6.tar.gz && \
   tar xvf ruby-2.2.6.tar.gz && \
