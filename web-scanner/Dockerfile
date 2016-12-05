@@ -38,11 +38,6 @@ RUN \
   gem install addressable
   
 
-# ruby
-RUN \
-  cd / && \
-  mkdir 
-
 # cleanup
 RUN \
   apt-get purge -y git build-essential && \
