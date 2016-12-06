@@ -8,5 +8,8 @@ nikto -Version
 echo "[-] skipfish"
 skipfish
 
+echo "[-] WhatWeb"
+whatweb --version
+
 echo "[-] wpscan"
-wpscan --version
+wpscan.rb --version
